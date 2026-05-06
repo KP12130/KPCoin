@@ -1,0 +1,29 @@
+KPCoin Genesis Block Data
+============================================================
+
+Block Hash:     000007650d4bc678cdc15d2256630f587bc0bfbb3b61e15d2a6c5f1e7c02ece3
+Merkle Root:    a078ecc2e421b425dbcf2a80699f45da9e5fe7ddb42e8c883bd85ad4abd45177
+Timestamp:      1777995333
+nBits:          0x1e0ffff0
+Nonce:          679057
+Coinbase TX:    01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff3004f0ff0f1e0104284b50436f696e2047656e65736973202d205468652050656f706c657320436f696e202d2032303236ffffffff01004077d09f7b3900434104678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5fac00000000
+Header (hex):   0100000000000000000000000000000000000000000000000000000000000000000000007751d4abd45ad83b888c2eb4dde75f9eda459f69802acfdb25b421e4c2ec78a0450efa69f0ff0f1e915c0a00
+
+C++ Code:
+
+// KPCoin Genesis Block
+// Message: "KPCoin Genesis - The Peoples Coin - 2026"
+// Pre-mine: 161,800,000 KPC
+
+genesis = CreateGenesisBlock(
+    1777995333,         // nTime
+    679057,                     // nNonce
+    0x1e0ffff0,      // nBits
+    1,             // nVersion
+    161800000 * COIN  // genesisReward (pre-mine)
+);
+
+consensus.hashGenesisBlock = genesis.GetHash();
+assert(consensus.hashGenesisBlock == uint256S("0x000007650d4bc678cdc15d2256630f587bc0bfbb3b61e15d2a6c5f1e7c02ece3"));
+assert(genesis.hashMerkleRoot == uint256S("0xa078ecc2e421b425dbcf2a80699f45da9e5fe7ddb42e8c883bd85ad4abd45177"));
+
